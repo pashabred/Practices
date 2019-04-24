@@ -2,27 +2,39 @@
 
 class Animal {
   public:
-    virtual void makeNoise() = 0;
+    virtual void makeNoise()=0;
 };
 
-class Cat: Animal {
-  void makeNoise() {
-    std::cout << "meow";
-  }
-};
-class Dog: Animal {
-  void makeNoise() {
-    std::cout << "bark";
-  }
+class Cat : public Animal{
+  public:
+    void makeNoise() {
+          std::cout << "meow" << std::endl;
+    }
 };
 
-class Parrot: Animal {
-  void makeNoise() {
-    std::cout << "whatever noise Parrot does";
-  }
+class Dog : public Animal{
+  public:
+    void makeNoise() {
+        std::cout << "bark" << std::endl;
+    }
 };
 
-int main(int argc, char const *argv[]) {
-  /* code */
+class Parrot : public Animal{
+  public:
+    void makeNoise() {
+          std::cout << "whatever noise Parrot does" << std::endl;
+    }
+};
+
+int main() {
+  Cat cat;
+  cat.makeNoise();
+
+  Dog dog;
+  dog.makeNoise();
+
+  Parrot parrot;
+  parrot.makeNoise();
+  
   return 0;
 }
